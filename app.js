@@ -10,6 +10,10 @@ const patientsRouter = require('./routes/patientRoute')
 app.use(cors())
 app.use(express.json()) //post data will be in json format
 
+app.get('/',(req,res)=>{
+    res.status(200).send("API Works!")
+})
+
 mongoose.connect(process.env.DB_URL)
 const db = mongoose.connection
 db.on('error', (errorMessage) => console.log(errorMessage))
